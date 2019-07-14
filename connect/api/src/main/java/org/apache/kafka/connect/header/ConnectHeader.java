@@ -36,7 +36,7 @@ class ConnectHeader implements Header {
         Objects.requireNonNull(key, "Null header keys are not permitted");
         this.key = key;
         this.schemaAndValue = schemaAndValue != null ? schemaAndValue : NULL_SCHEMA_AND_VALUE;
-        assert this.schemaAndValue != null;
+        assert this.schemaAndValue != null; //此处使用的是断言，如果不为null就继续，为null就抛出错误
     }
 
     @Override
@@ -60,16 +60,16 @@ class ConnectHeader implements Header {
 
     @Override
     public Header rename(String key) {
-        Objects.requireNonNull(key, "Null header keys are not permitted");
+        Objects.requireNonNull(key, "Null header keys are not permitted");//key为null，直接返回NullPointerException
         if (this.key.equals(key)) {
-            return this;
+            return this; //如果和当前的key一样，直接返回
         }
-        return new ConnectHeader(key, schemaAndValue);
+        return new ConnectHeader(key, schemaAndValue);//不一样就创建新的（用新的key），schema和value不变
     }
 
     @Override
     public Header with(Schema schema, Object value) {
-        return new ConnectHeader(key, new SchemaAndValue(schema, value));
+        return new ConnectHeader(key, new SchemaAndValue(schema, value));//key不变，生成新的schema和value
     }
 
     @Override
