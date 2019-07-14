@@ -46,6 +46,22 @@ public class SchemaAndValue {
                 Objects.equals(value, that.value);
     }
 
+    /**
+     * Hash()函数是把一个大范围映射到一个小范围，为了节省空间，数据容易保存
+     * 单项函数，给定输入容易计算结果，给定输出很难计算输入，这种可用于对数据进行加密
+     * 散列函数逼近单项函数
+     * 还可以用来查找数据
+     * 加法hash
+     * 位运算hash
+     * 乘法hash
+     * 除法hash
+     * 查表hash
+     * 混合hash
+     * 质数：又叫做素数，是一个大于一的自然数，并且因数只有1和它自身，不能整除其他自然数  1*3
+     * 自然数：0,1,2,3,4，... 一个接一个，组成一个无穷的集体，就是非负整数
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         return Objects.hash(schema, value);
