@@ -53,7 +53,7 @@ import java.util.Map;
  */
 public class SchemaBuilder implements Schema {
     private static final String TYPE_FIELD = "type";
-    private static final String OPTIONAL_FIELD = "optional";
+    private static final String OPTIONAL_FIELD = "optional";//有选择的 optional
     private static final String DEFAULT_FIELD = "default";
     private static final String NAME_FIELD = "name";
     private static final String VERSION_FIELD = "version";
@@ -88,11 +88,11 @@ public class SchemaBuilder implements Schema {
 
     @Override
     public boolean isOptional() {
-        return optional == null ? false : optional;
+        return optional == null ? false : optional;//如果是null，直接返回false，如果不是null，就返回本身
     }
 
     /**
-     * Set this schema as optional.
+     * Set this schema as optional. 为此模式设置为可选的
      * @return the SchemaBuilder
      */
     public SchemaBuilder optional() {
@@ -103,6 +103,8 @@ public class SchemaBuilder implements Schema {
 
     /**
      * Set this schema as required. This is the default, but this method can be used to make this choice explicit.
+     * 根据需要设置此架构，这是默认值，但可以使用此方法使此选择显示化
+     * explicit 清楚明白的，易于理解的
      * @return the SchemaBuilder
      */
     public SchemaBuilder required() {
@@ -118,6 +120,7 @@ public class SchemaBuilder implements Schema {
 
     /**
      * Set the default value for this schema. The value is validated against the schema type, throwing a
+     * 设置此架构的默认值，改值根据架构类型进行验证，并引发
      * {@link SchemaBuilderException} if it does not match.
      * @param value the default value
      * @return the SchemaBuilder
@@ -140,7 +143,7 @@ public class SchemaBuilder implements Schema {
     }
 
     /**
-     * Set the name of this schema.
+     * Set the name of this schema. 设置模式的名称
      * @param name the schema name
      * @return the SchemaBuilder
      */
@@ -394,8 +397,10 @@ public class SchemaBuilder implements Schema {
 
 
     /**
-     * Build the Schema using the current settings
+     * Build the Schema using the current settings  使用当前设置构建模式【建造者：声明了具体建造者的公共接口（产品的建造过程）返回产品的方法】
      * @return the {@link Schema}
+     *
+     * Collections.unmodifiableMap  产生一个只读的Map，调用put方法时会抛错
      */
     public Schema build() {
         return new ConnectSchema(type, isOptional(), defaultValue, name, version, doc,
@@ -405,6 +410,7 @@ public class SchemaBuilder implements Schema {
 
     /**
      * Return a concrete instance of the {@link Schema} specified by this builder
+     * 返回此生成器指定的 Schema 的具体实例
      * @return the {@link Schema}
      */
     @Override

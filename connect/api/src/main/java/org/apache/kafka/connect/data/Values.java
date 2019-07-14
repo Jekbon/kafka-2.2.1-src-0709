@@ -41,10 +41,15 @@ import java.util.TimeZone;
 import java.util.regex.Pattern;
 
 /**
- * Utility for converting from one Connect value to a different form. This is useful when the caller expects a value of a particular type
+ * Utility for converting from one Connect value to a different form.
+ *  form 类型，外表，形式   convert转换，可变换为  utility实用，公用程序
+ * 用于从一个连接值转换为另一个窗体的实用程序
+ * This is useful when the caller expects a value of a particular type
+ * 当调用者期望某个特定类型的值
  * but is uncertain whether the actual value is one that isn't directly that type but can be converted into that type.
- *
+ * 但不确定实际值是否是不是直接属于该类型但可以转换为该类型的值时，此选项非常有用
  * <p>For example, a caller might expects a particular {@link org.apache.kafka.connect.header.Header} to contain an {@link Type#INT64}
+ * 例如，一个调用者期望一个特定 Header包含一个值，当header实际包含一个字符串代表32位整型，在这里，此调用者使用这个方法把这个类转换为描述的类型
  * value, when in fact that header contains a string representation of a 32-bit integer. Here, the caller can use the methods in this
  * class to convert the value to the desired type:
  * <pre>
@@ -54,6 +59,8 @@ import java.util.regex.Pattern;
  *
  * <p>This class is able to convert any value to a string representation as well as parse those string representations back into most of
  * the types. The only exception is {@link Struct} values that require a schema and thus cannot be parsed from a simple string.
+ * 此类能够将任何值转换为字符串表现形式，并将这些字符串表示形式解析回大多数类型，唯一的例外是struct值，这些值需要一个模式，因此无法从简单字符串分析
+ *
  */
 public class Values {
 

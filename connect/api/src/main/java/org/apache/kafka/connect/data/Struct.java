@@ -28,6 +28,8 @@ import java.util.Objects;
  * <p>
  *     A structured record containing a set of named fields with values, each field using an independent {@link Schema}.
  *     Struct objects must specify a complete {@link Schema} up front, and only fields specified in the Schema may be set.
+ *     包含一组带值的命名字段的结构化记录，每个字段使用独立的模式。
+ *     结构对象必须预先指定一个完整的模式
  * </p>
  * <p>
  *     The Struct's {@link #put(String, Object)} method returns the Struct itself to provide a fluent API for constructing

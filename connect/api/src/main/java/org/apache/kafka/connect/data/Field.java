@@ -21,6 +21,7 @@ import java.util.Objects;
 /**
  * <p>
  *     A field in a {@link Struct}, consisting of a field name, index, and {@link Schema} for the field value.
+ *     数据结构包括字段名，索引，模式
  * </p>
  */
 public class Field {
@@ -35,7 +36,7 @@ public class Field {
     }
 
     /**
-     * Get the name of this field.
+     * Get the name of this field.  获取字段名称
      * @return the name of this field
      */
     public String name() {
@@ -44,7 +45,8 @@ public class Field {
 
 
     /**
-     * Get the index of this field within the struct.
+     * within 在里面
+     * Get the index of this field within the struct. 获取索引
      * @return the index of this field
      */
     public int index() {
@@ -52,7 +54,7 @@ public class Field {
     }
 
     /**
-     * Get the schema of this field
+     * Get the schema of this field 获取字段你的模式
      * @return the schema of values of this field
      */
     public Schema schema() {
@@ -69,6 +71,17 @@ public class Field {
                 Objects.equals(schema, field.schema);
     }
 
+    /**
+     *  hash() hash是散列的意思，就是把任意长度的输入，通过散列算法输出固定长度的输出，该输出值就是散列值
+     *  不同输入值经过一个散列算法输出同一个值，这种叫碰撞
+     *  在同一个散列算法的处理下hash值不同，这两个原始输入必定不同
+     *
+     *  hashcode()是hash的一个索引，方便查找哈希值，
+     *  equals是比较内容是否一致（string自己改了），object是直接比较内存地址，和 == 一样
+     *  想做到无重复set，就需要比较，每次用equals比较内容浪费资源，不如用hash，然后用hashcode获取存放的地址
+     *
+     *
+     */
     @Override
     public int hashCode() {
         return Objects.hash(name, index, schema);

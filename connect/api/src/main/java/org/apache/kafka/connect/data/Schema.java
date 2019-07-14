@@ -53,6 +53,12 @@ public interface Schema {
      * The type of a schema. These only include the core types; logical types must be determined by checking the schema name.
      *  架构的类型，这些只包括核心类型；逻辑类型必须通过检查架构名称来确定
      */
+    /**
+     *   无符号整数和有符号整数怎么区分？
+     *   有无符号的整数，在计算机内存中是区别不出有无符号的，而是在程序里有区分。计算机中数据是以补码形式存放的，
+     *   用二进制表示。比如：默认无符号型，只要在类型符号加unsigned就是无符号型，Int是有符号的。
+     *   其实说白了就是：定义带符号整数的，则可以存储正负整数，定义无符号整数的，则只可以存储正整数
+     */
     enum Type {
         /**
          *  8-bit signed integer 八位有符号整型
@@ -104,20 +110,23 @@ public interface Schema {
          */
         STRING,
         /**
-         * Sequence of unsigned 8-bit bytes
+         * Sequence of unsigned 8-bit bytes  无符号8位字节序列
          */
         BYTES,
         /**
          * An ordered sequence of elements, each of which shares the same type.
+         * 元素的有序序列，每个元素共享同一类型【数组】
          */
         ARRAY,
         /**
          * A mapping from keys to values. Both keys and values can be arbitrarily complex types, including complex types
          * such as {@link Struct}.
+         * 从键到值的映射。键和值都可以是任意复杂的类型，包括复杂类型，如 Struct
          */
         MAP,
         /**
          * A structured record containing a set of named fields, each field using a fixed, independent {@link Schema}.
+         * 包含一组命名字段的结构化记录，每个字段使用固定的，独立的 模式（Schema）
          */
         STRUCT;
 
@@ -149,7 +158,7 @@ public interface Schema {
     }
 
 
-    Schema INT8_SCHEMA = SchemaBuilder.int8().build();
+    Schema INT8_SCHEMA = SchemaBuilder.int8().build();//
     Schema INT16_SCHEMA = SchemaBuilder.int16().build();
     Schema INT32_SCHEMA = SchemaBuilder.int32().build();
     Schema INT64_SCHEMA = SchemaBuilder.int64().build();

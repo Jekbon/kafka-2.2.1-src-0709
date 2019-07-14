@@ -32,6 +32,7 @@ import java.util.Set;
  * <p>
  *     SchemaProjector is utility to project a value between compatible schemas and throw exceptions
  *     when non compatible schemas are provided.
+ *     SchemaProjector 是一种实用程序，用于在兼容模式之间投影值，并在提供下兼容模式时引发异常
  * </p>
  */
 

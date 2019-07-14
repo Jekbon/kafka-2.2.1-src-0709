@@ -31,15 +31,19 @@ import java.util.Objects;
 public class ConnectSchema implements Schema {
     /**
      * Maps Schema.Types to a list of Java classes that can be used to represent them.
+     *  类型映射到可以用来表示它们的Java类列表
      */
     private static final Map<Type, List<Class>> SCHEMA_TYPE_CLASSES = new EnumMap<>(Type.class);
     /**
      * Maps known logical types to a list of Java classes that can be used to represent them.
+     * 将已知的逻辑类型映射到可以用来表示他们的java类列表中
      */
     private static final Map<String, List<Class>> LOGICAL_TYPE_CLASSES = new HashMap<>();
 
     /**
      * Maps the Java classes to the corresponding Schema.Type.
+     * 将java类映射到相应的模式类型
+     * corresponding符合的，相应的
      */
     private static final Map<Class<?>, Type> JAVA_CLASS_SCHEMA_TYPES = new HashMap<>();
 
@@ -99,6 +103,8 @@ public class ConnectSchema implements Schema {
 
     /**
      * Construct a Schema. Most users should not construct schemas manually, preferring {@link SchemaBuilder} instead.
+     * 构造模式，大多数用户不应该手动构造模式，而是首选 SchemaBuilder
+     *  具体建造者，实现builder接口来创建具体产品
      */
     public ConnectSchema(Type type, boolean optional, Object defaultValue, String name, Integer version, String doc, Map<String, String> parameters, List<Field> fields, Schema keySchema, Schema valueSchema) {
         this.type = type;
@@ -110,6 +116,9 @@ public class ConnectSchema implements Schema {
         this.parameters = parameters;
 
         if (this.type == Type.STRUCT) {
+            //Collections. emptyList()返回的也是一个空的List，它与Collections.EMPTY_LIST的唯一区别是，
+            // Collections. emptyList()支持泛型，所以在需要泛型的时候，可以使用Collections. emptyList()。
+            //Collections.EMPTY_MAP和Collections.EMPTY_SET同理
             this.fields = fields == null ? Collections.<Field>emptyList() : fields;
             this.fieldsByName = new HashMap<>(this.fields.size());
             for (Field field : this.fields)
@@ -125,6 +134,7 @@ public class ConnectSchema implements Schema {
 
     /**
      * Construct a Schema for a primitive type, setting schema parameters, struct fields, and key and value schemas to null.
+     * 为基本类型构造一个模式，设置模式的参数，结构领域，以及键和值的模式为null
      */
     public ConnectSchema(Type type, boolean optional, Object defaultValue, String name, Integer version, String doc) {
         this(type, optional, defaultValue, name, version, doc, null, null, null, null);
@@ -133,6 +143,7 @@ public class ConnectSchema implements Schema {
     /**
      * Construct a default schema for a primitive type. The schema is required, has no default value, name, version,
      * or documentation.
+     * 为基本类型构造一个默认的模式，这个模式是必须的，没有默认值，名称，版本号或者文档
      */
     public ConnectSchema(Type type) {
         this(type, false, null, null, null, null);
