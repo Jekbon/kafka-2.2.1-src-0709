@@ -36,12 +36,17 @@ import java.util.regex.Pattern;
  * This class is used for specifying the set of expected configurations. For each configuration, you can specify
  * the name, the type, the default value, the documentation, the group information, the order in the group,
  * the width of the configuration value and the name suitable for display in the UI.
- *
+ *  specifying 具体说明，详述
+ *  此类用于指定一组预期的配置。对于每个配置，可以指定名称，类型，默认值，文档，组信息，组中的顺序，配置值的宽度和适合在UI中显示的名称
  * You can provide special validation logic used for single configuration validation by overriding {@link Validator}.
- *
+ *  validation 生效，特别的，不寻常的
+ *  你可以通过覆盖 Validator来提供用于单个配置验证的特殊验证逻辑
  * Moreover, you can specify the dependents of a configuration. The valid values and visibility of a configuration
  * may change according to the values of other configurations. You can override {@link Recommender} to get valid
  * values and set visibility of a configuration given the current configuration values.
+ *  moreover 此外，而且  dependents 被扶养人，被赡养人，依靠者  visibility可见度，能见度  according to根据，按照   configurations布局，结构
+ *  此外，还可以指定配置的依赖项，配置的有效值和可见性可根据其他配置的值进行更改，可以覆盖链接 Recommender 来获得有效值并设置给定
+ *  当前配置值的配置的可见性
  *
  * <p/>
  * To use the class:
@@ -70,6 +75,7 @@ import java.util.regex.Pattern;
  * <p/>
  * This class can be used standalone or in combination with {@link AbstractConfig} which provides some additional
  * functionality for accessing configs.
+ * 这个类可以单独使用，也可以与AbstractConfig 结合使用，后者提供了一些额外的访问配置的功能
  */
 public class ConfigDef {
 
@@ -77,6 +83,9 @@ public class ConfigDef {
 
     /**
      * A unique Java object which represents the lack of a default value.
+     * lack of 缺少，缺乏，需要
+     * default value 缺省值，省略补充
+     *  一个独特的java对象，他表示缺省值的缺失
      */
     public static final Object NO_DEFAULT_VALUE = new Object();
 
@@ -85,8 +94,8 @@ public class ConfigDef {
     private Set<String> configsWithNoParent;
 
     public ConfigDef() {
-        configKeys = new LinkedHashMap<>();
-        groups = new LinkedList<>();
+        configKeys = new LinkedHashMap<>();//保留插入顺序，场景：需要输出的顺序和输入时相同，允许key和value都为null
+        groups = new LinkedList<>(); //插入和删除比ArrayList高效，基于链表
         configsWithNoParent = null;
     }
 
@@ -94,13 +103,14 @@ public class ConfigDef {
         configKeys = new LinkedHashMap<>(base.configKeys);
         groups = new LinkedList<>(base.groups);
         // It is not safe to copy this from the parent because we may subsequently add to the set of configs and
-        // invalidate this
+        // 从父集复制此项是不安全的，因为我们随后可能会添加到配置集   subsequently随后
+        // invalidate this 使它无效
         configsWithNoParent = null;
     }
 
     /**
      * Returns unmodifiable set of properties names defined in this {@linkplain ConfigDef}
-     *
+     *  返回在此ConfigDef中定义的不可修改的属性名集
      * @return new unmodifiable {@link Set} instance containing the keys
      */
     public Set<String> names() {
