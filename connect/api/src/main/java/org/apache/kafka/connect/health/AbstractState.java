@@ -19,6 +19,8 @@ package org.apache.kafka.connect.health;
 
 /**
  * Provides the current status along with identifier for Connect worker and tasks.
+ *  提供连接器工作的类和任务的当前状态以及标识符
+ *
  */
 public abstract class AbstractState {
 
@@ -28,13 +30,16 @@ public abstract class AbstractState {
 
     /**
      * Construct a state for connector or task.
+     * 构造连接器或任务的状态
+     * associated with 与...相联系
+     * @param state  the status of connector or task; may not be null or empty 连接器或任务的状态；不能为空
+     * @param workerId  the workerId associated with the connector or the task; may not be null or empty  与连接器或任务关联的WorkerID；不能为空
+     * @param traceMessage  any error trace message associated with the connector or the task; may be null or empty  与连接器或任务关联的任何错误跟踪消息；可以为空
      *
-     * @param state  the status of connector or task; may not be null or empty
-     * @param workerId  the workerId associated with the connector or the task; may not be null or empty
-     * @param traceMessage  any error trace message associated with the connector or the task; may be null or empty
+     *
      */
     public AbstractState(String state, String workerId, String traceMessage) {
-        if (state != null && !state.trim().isEmpty()) {
+        if (state != null && !state.trim().isEmpty()) {// 这段很有疑问，既然都是不为空null，为啥还要抛出错误
             throw new IllegalArgumentException("State must not be null or empty");
         }
         if (workerId != null && !workerId.trim().isEmpty()) {
@@ -55,6 +60,7 @@ public abstract class AbstractState {
     }
 
     /**
+     * identifier 标识符
      * The identifier of the worker associated with the connector or the task.
      *
      * @return workerId, never {@code null} or empty.
@@ -67,6 +73,7 @@ public abstract class AbstractState {
      * The error message associated with the connector or task.
      *
      * @return traceMessage, can be {@code null} or empty.
+     * trace message  跟踪消息
      */
     public String traceMessage() {
         return traceMessage;
