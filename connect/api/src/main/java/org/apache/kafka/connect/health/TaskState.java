@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /**
  * Describes the state, IDs, and any errors of a connector task.
+ * 描述连接器任务的状态，id和任何错误
  */
 public class TaskState extends AbstractState {
 
@@ -29,9 +30,9 @@ public class TaskState extends AbstractState {
     /**
      * Provides an instance of {@link TaskState}.
      *
-     * @param taskId   the id associated with the connector task
-     * @param state    the status of the task, may not be {@code null} or empty
-     * @param workerId id of the worker the task is associated with, may not be {@code null} or empty
+     * @param taskId   the id associated with the connector task 与连接器任务关联的id
+     * @param state    the status of the task, may not be {@code null} or empty 任务状态，不能为空或者null
+     * @param workerId id of the worker the task is associated with, may not be {@code null} or empty 与任务关联的工作人员id
      * @param trace    error message if that task had failed or errored out, may be {@code null} or empty
      */
     public TaskState(int taskId, String state, String workerId, String trace) {
