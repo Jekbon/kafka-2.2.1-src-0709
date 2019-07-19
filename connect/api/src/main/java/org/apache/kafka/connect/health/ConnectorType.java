@@ -19,19 +19,22 @@ package org.apache.kafka.connect.health;
 import java.util.Locale;
 
 /**
+ * definition定义，释义    identifies显示，确认
  * Enum definition that identifies the type of the connector.
+ *  标识连接器类型的枚举定义
  */
 public enum ConnectorType {
     /**
-     * Identifies a source connector
+     * Identifies a source connector 标识源连接器
      */
     SOURCE,
     /**
-     * Identifies a sink connector
+     * Identifies a sink connector 标识接收器连接器
      */
     SINK,
     /**
-     * Identifies a connector whose type could not be inferred
+     * inferred 推断，推论
+     * Identifies a connector whose type could not be inferred  标识无法推断其类型的连接器
      */
     UNKNOWN;
 
