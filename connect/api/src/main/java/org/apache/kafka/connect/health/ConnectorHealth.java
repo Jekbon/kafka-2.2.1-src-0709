@@ -22,6 +22,7 @@ import java.util.Objects;
 
 /**
  * Provides basic health information about the connector and its tasks.
+ *  提供基本的健康信息给连接器和他的任务
  */
 public class ConnectorHealth {
 
@@ -48,7 +49,7 @@ public class ConnectorHealth {
     }
 
     /**
-     * Provides the name of the connector.
+     * Provides the name of the connector. 提供连接器的名称
      *
      * @return name, never {@code null} or empty
      */
@@ -57,7 +58,7 @@ public class ConnectorHealth {
     }
 
     /**
-     * Provides the current state of the connector.
+     * Provides the current state of the connector. 提供当前连接器的状态
      *
      * @return the connector state, never {@code null}
      */
@@ -66,7 +67,7 @@ public class ConnectorHealth {
     }
 
     /**
-     * Provides the current state of the connector tasks.
+     * Provides the current state of the connector tasks. 提供当前连接器任务的状态
      *
      * @return the state for each task ID; never {@code null}
      */
@@ -75,7 +76,7 @@ public class ConnectorHealth {
     }
 
     /**
-     * Provides the type of the connector.
+     * Provides the type of the connector. 提供连接器的类型
      *
      * @return type, never {@code null}
      */
