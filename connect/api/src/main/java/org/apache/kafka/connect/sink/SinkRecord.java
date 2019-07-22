@@ -25,9 +25,13 @@ import org.apache.kafka.connect.header.Header;
  * SinkRecord is a {@link ConnectRecord} that has been read from Kafka and includes the kafkaOffset of
  * the record in the Kafka topic-partition in addition to the standard fields. This information
  * should be used by the SinkTask to coordinate kafkaOffset commits.
+ * sinkrecord是一个@link connectrecord，已从kafka读取，除了标准字段外，
+ * 还包括kafka主题分区中记录的kafkaoffset。sinktask应该使用此信息来协调kafkaoffset提交。
+ *
  *
  * It also includes the {@link TimestampType}, which may be {@link TimestampType#NO_TIMESTAMP_TYPE}, and the relevant
  * timestamp, which may be {@code null}.
+ * 它还包括@link timestamp type，可以是@link timestamptype no _timestamp，以及相关的时间戳，可以是@code null。
  */
 public class SinkRecord extends ConnectRecord<SinkRecord> {
     private final long kafkaOffset;
