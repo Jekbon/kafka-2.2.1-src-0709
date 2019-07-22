@@ -21,16 +21,21 @@ import org.apache.kafka.connect.storage.OffsetStorageReader;
 import java.util.Map;
 
 /**
+ * interact with与...相互作用    underlying 底层的
  * SourceTaskContext is provided to SourceTasks to allow them to interact with the underlying
  * runtime.
+ * SourceTaskContext提供给SourceTasks以允许它们与底层运行时交互
  */
 public interface SourceTaskContext {
     /**
-     * Get the Task configuration.  This is the latest configuration and may differ from that passed on startup.
+     * latest最近的    variable多变的   compatible兼容的
      *
+     * Get the Task configuration.  This is the latest configuration and may differ from that passed on startup.
+     * 获取任务的配置。这是最新的配置，可能与启动时传递的配置不同
      * For example, this method can be used to obtain the latest configuration if an external secret has changed,
      * and the configuration is using variable references such as those compatible with
      * {@link org.apache.kafka.common.config.ConfigTransformer}.
+     *  例如，如果外部机密已更改。并且配置使用变量引用（如与ConfigTransformer兼容的引用），则可以使用此方法获取最新配置
      */
     public Map<String, String> configs();
 
