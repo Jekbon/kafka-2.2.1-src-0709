@@ -33,6 +33,8 @@ import java.util.NoSuchElementException;
 /**
  * A {@link HeaderConverter} that serializes header values as strings and that deserializes header values to the most appropriate
  * numeric, boolean, array, or map representation. Schemas are not serialized, but are inferred upon deserialization when possible.
+ *  一个HeaderConverter ，它将头值序列化为字符串，并将头值反序列化为最合适的数字，布尔值，数组或映射标示形式，架构未序列化，但在可能的
+ *  情况下载反序列化时推断
  */
 public class SimpleHeaderConverter implements HeaderConverter {
 
