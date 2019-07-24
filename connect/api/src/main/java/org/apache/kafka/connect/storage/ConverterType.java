@@ -23,6 +23,7 @@ import java.util.Map;
 
 /**
  * The type of {@link Converter} and {@link HeaderConverter}.
+ * Converter和HeaderConverter的类型
  */
 public enum ConverterType {
     KEY,
@@ -42,8 +43,10 @@ public enum ConverterType {
 
     /**
      * Find the ConverterType with the given name, using a case-insensitive match.
+     * 使用不区分大小写的匹配项查找具有给定名称的ConverterType
      * @param name the name of the converter type; may be null
      * @return the matching converter type, or null if the supplied name is null or does not match the name of the known types
+     *        匹配的转换器类型，如果提供的名称为空或与已知类型的名称不匹配，则为空
      */
     public static ConverterType withName(String name) {
         if (name == null) {
