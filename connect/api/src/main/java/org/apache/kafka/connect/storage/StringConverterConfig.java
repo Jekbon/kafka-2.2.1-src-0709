@@ -24,13 +24,15 @@ import org.apache.kafka.common.config.ConfigDef.Width;
 import java.util.Map;
 
 /**
+ * options 选项
  * Configuration options for {@link StringConverter} instances.
+ *  配置选项 StringConverter的实例
  */
 public class StringConverterConfig extends ConverterConfig {
 
     public static final String ENCODING_CONFIG = "converter.encoding";
     public static final String ENCODING_DEFAULT = "UTF8";
-    private static final String ENCODING_DOC = "The name of the Java character set to use for encoding strings as byte arrays.";
+    private static final String ENCODING_DOC = "The name of the Java character set to use for encoding strings as byte arrays.";//用于将字符串编码为字节数组的Java字符集的名称。
     private static final String ENCODING_DISPLAY = "Encoding";
 
     private final static ConfigDef CONFIG;
@@ -51,7 +53,7 @@ public class StringConverterConfig extends ConverterConfig {
 
     /**
      * Get the string encoding.
-     *
+     * 获取字符串编码
      * @return the encoding; never null
      */
     public String encoding() {
