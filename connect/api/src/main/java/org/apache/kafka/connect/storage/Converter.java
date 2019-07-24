@@ -25,19 +25,23 @@ import java.util.Map;
  * The Converter interface provides support for translating between Kafka Connect's runtime data format
  * and byte[]. Internally, this likely includes an intermediate step to the format used by the serialization
  * layer (e.g. JsonNode, GenericRecord, Message).
+ * Converter接口支持在Kafka Connect的运行时数据格式和byte[]之间进行转换，在内部，这可能包括到序列化层使用的
+ * 格式的中间步骤（例如JsonNode, GenericRecord, Message）
  */
 public interface Converter {
 
     /**
-     * Configure this class.
+     * Configure this class. 配置类
      * @param configs configs in key/value pairs
      * @param isKey whether is for key or value
      */
     void configure(Map<String, ?> configs, boolean isKey);
 
     /**
+     * associated with与...相关
      * Convert a Kafka Connect data object to a native object for serialization.
-     * @param topic the topic associated with the data
+     * 将Kafka Connect数据对象转换为本机对象进行序列化
+     * @param topic the topic associated with the data 与数据关联的主题
      * @param schema the schema for the value
      * @param value the value to convert
      * @return the serialized value
@@ -46,6 +50,7 @@ public interface Converter {
 
     /**
      * Convert a native object to a Kafka Connect data object.
+     *  将本机对象转换为Kafka Connect数据对象
      * @param topic the topic associated with the data
      * @param value the value to convert
      * @return an object containing the {@link Schema} and the converted value
