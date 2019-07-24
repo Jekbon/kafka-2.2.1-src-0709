@@ -28,7 +28,8 @@ public interface HeaderConverter extends Configurable, Closeable {
 
     /**
      * Convert the header name and byte array value into a {@link Header} object.
-     * @param topic the name of the topic for the record containing the header
+     * 将头名称和字节数组值转换为header对象
+     * @param topic the name of the topic for the record containing the header包含标题的记录的主题名称
      * @param headerKey the header's key; may not be null
      * @param value the header's raw value; may be null
      * @return the {@link SchemaAndValue}; may not be null
@@ -37,7 +38,8 @@ public interface HeaderConverter extends Configurable, Closeable {
 
     /**
      * Convert the {@link Header}'s {@link Header#value() value} into its byte array representation.
-     * @param topic the name of the topic for the record containing the header
+     * 将Header的value值转换为其字节数组标示形式
+     * @param topic the name of the topic for the record containing the header 包含标题的记录的主题名称
      * @param headerKey the header's key; may not be null
      * @param schema the schema for the header's value; may be null
      * @param value the header's value to convert; may be null
@@ -46,8 +48,8 @@ public interface HeaderConverter extends Configurable, Closeable {
     byte[] fromConnectHeader(String topic, String headerKey, Schema schema, Object value);
 
     /**
-     * Configuration specification for this set of header converters.
-     * @return the configuration specification; may not be null
+     * Configuration specification for this set of header converters. 这组头段转换器的配置规范
+     * @return the configuration specification; may not be null 指定配置文件，不能为null
      */
     ConfigDef config();
 }
