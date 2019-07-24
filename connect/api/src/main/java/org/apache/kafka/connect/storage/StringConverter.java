@@ -32,12 +32,16 @@ import java.util.Map;
  * data to bytes, the schema will be ignored and {@link Object#toString()} will always be invoked to convert the data to a String.
  * When converting from bytes to Kafka Connect format, the converter will only ever return an optional string schema and
  * a string or null.
- *
+ *  Converter和HeaderConverter只支持序列化到字符串的实现。将kafka connect数据转换为字节时，架构将被忽略，object的toString（）将始终被
+ *  调用以将数据转换为字符串。当从字节转换为kafka connect格式时，转换器将只返回可选的字符串架构和字符串或空值
  * Encoding configuration is identical to {@link StringSerializer} and {@link StringDeserializer}, but for convenience
  * this class can also be configured to use the same encoding for both encoding and decoding with the
  * {@link StringConverterConfig#ENCODING_CONFIG converter.encoding} setting.
+ *  编码配置与@Link StringSerializer和@Link StringDeserializer相同，但为了方便起见，
+ *  也可以将该类配置为使用@Link StringConverterConfig Encoding Config Converter.Encoding设置对编码和解码使用相同的编码。
  *
  * This implementation currently does nothing with the topic names or header names.
+ *  此实现当前与主题名或标题名无关
  */
 public class StringConverter implements Converter, HeaderConverter {
 
