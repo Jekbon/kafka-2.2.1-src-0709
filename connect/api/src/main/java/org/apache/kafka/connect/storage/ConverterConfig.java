@@ -27,6 +27,7 @@ import static org.apache.kafka.common.config.ConfigDef.ValidString.in;
 
 /**
  * Abstract class that defines the configuration options for {@link Converter} and {@link HeaderConverter} instances.
+ * 抽象类，定义Converter和HeaderConverter实例的配置选项
  */
 public abstract class ConverterConfig extends AbstractConfig {
 
@@ -35,7 +36,7 @@ public abstract class ConverterConfig extends AbstractConfig {
 
     /**
      * Create a new {@link ConfigDef} instance containing the configurations defined by ConverterConfig. This can be called by subclasses.
-     *
+     * 创建一个包含ConverterConfig定义的配置的新ConfigDef实例，这可以由子类调用
      * @return the ConfigDef; never null
      */
     public static ConfigDef newConfigDef() {
@@ -50,6 +51,7 @@ public abstract class ConverterConfig extends AbstractConfig {
 
     /**
      * Get the type of converter as defined by the {@link #TYPE_CONFIG} configuration.
+     * 获取由type配置定义的转换器类型
      * @return the converter type; never null
      */
     public ConverterType type() {
