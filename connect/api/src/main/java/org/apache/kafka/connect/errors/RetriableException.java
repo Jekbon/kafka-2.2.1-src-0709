@@ -17,7 +17,9 @@
 package org.apache.kafka.connect.errors;
 
 /**
+ * reattempt重新尝试，再尝试
  * An exception that indicates the operation can be reattempted.
+ * 标示可以重新尝试操作的异常
  */
 public class RetriableException extends ConnectException {
     public RetriableException(String s) {

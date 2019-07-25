@@ -17,7 +17,9 @@
 package org.apache.kafka.connect.errors;
 
 /**
+ * entity实体  operation手术，活动，企业  indicates表明，显示，象征，暗示，示意
  * Indicates the operation tried to create an entity that already exists.
+ * 显示操作尝试创建一个已经存在的实体
  */
 public class AlreadyExistsException extends ConnectException {
     public AlreadyExistsException(String s) {

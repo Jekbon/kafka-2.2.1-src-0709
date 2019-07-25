@@ -17,7 +17,10 @@
 package org.apache.kafka.connect.errors;
 
 /**
+ * present当前的，现存的
  * Indicates that an operation attempted to modify or delete a connector or task that is not present on the worker.
+ * 标示当前操作尝试修改或者删除连接器或任务不是当前的worker
+ * 指示某个操作试图修改或删除工作进程上不存在的连接器或任务
  */
 public class NotFoundException extends ConnectException {
     public NotFoundException(String s) {

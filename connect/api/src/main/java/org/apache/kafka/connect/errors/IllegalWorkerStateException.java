@@ -17,7 +17,9 @@
 package org.apache.kafka.connect.errors;
 
 /**
+ * illegally非法的，违法的  invalid无效的
  * Indicates that a method has been invoked illegally or at an invalid time by a connector or task.
+ * 指示连接器或任务在无效时间非法调用了方法
  */
 public class IllegalWorkerStateException extends ConnectException {
     public IllegalWorkerStateException(String s) {

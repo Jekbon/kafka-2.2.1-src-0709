@@ -18,6 +18,7 @@ package org.apache.kafka.connect.errors;
 
 /**
  * Base class for all Kafka Connect data API exceptions.
+ * 所有kafka Connect数据api异常基本类型
  */
 public class DataException extends ConnectException {
     public DataException(String s) {
